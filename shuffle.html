@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>シード付き並び替えツール</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a>並び替え</a>
+      </h1>
+    </header>
+    <main>
+      <div class="container">
+        <h2>初期設定</h2>
+        <div class="input-group">
+          <label for="min">最小値 (n):</label>
+          <input type="number" id="min" value="1" />
+        </div>
+        <div class="input-group">
+          <label for="max">最大値 (m):</label>
+          <input type="number" id="max" value="127" />
+        </div>
+        <div class="input-group">
+          <label for="seed">シード (s):</label>
+          <input type="number" id="seed" value="1" />
+        </div>
+        <p>上記の値を同じにすると同じ結果が返ってきます</p>
+
+        <button class="button-link" id="shuffle-button">並び替え</button>
+
+        <div class="output-group">
+          <p>並び替えた数列:</p>
+          <pre id="shuffled-array"></pre>
+        </div>
+
+        <hr />
+
+        <div class="query-group">
+          <h2>次の問題を検索</h2>
+          <label for="query-k">今解いた問題</label>
+          <input type="number" id="query-k" />
+          <button class="button-link" id="find-next-button">検索</button>
+          <p>次解く問題は第 <span id="result-next-k">--</span>問</p>
+        </div>
+
+        <div class="query-group">
+          <h4></h4>
+          <label for="query-i">今まで解いた問題数</label>
+          <input type="number" id="query-i" />
+          <button class="button-link" id="find-index-button">検索</button>
+          <p>次解く問題は第 <span id="result-index-i">--</span>問</p>
+        </div>
+
+        <hr />
+
+        <div class="next-group">
+          <h2>順番に見る</h2>
+          <p>現在の数値: <span id="current-value">--</span></p>
+          <button class="button-link" id="next-button">次へ</button>
+          <p>次の数値: <span id="next-value">--</span></p>
+        </div>
+      </div>
+      <script src="js/shuffle.js"></script>
+
+      <div class="profile-link">
+        <a href="index.html" class="button-link">TOPに戻る</a>
+      </div>
+    </main>
+  </body>
+</html>

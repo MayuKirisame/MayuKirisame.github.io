@@ -39,8 +39,7 @@ section {
   margin-bottom: 30px;
 }
 
-h2,
-h4 {
+h2 {
   color: #7b886f;
   border-left: 6px solid #a8b39d;
   padding-left: 15px;
@@ -92,4 +91,13 @@ footer {
   margin-top: 50px;
   padding: 20px;
   color: #887e71;
+}
+
+#shuffled-array {
+  max-width: 100%;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
 }
