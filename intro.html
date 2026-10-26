@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>イントロクイズ</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a href="index.html">イントロクイズ</a>
+      </h1>
+    </header>
+    <main>
+      <div>
+        <p>
+          YouTubeのリンクを貼ると音が出ます。<br />
+          SPACEキー、または早押し(マイク検知)で停止、ENTERで再生。
+        </p>
+        <div class="panel">
+          <input
+            id="urlInput"
+            type="text"
+            placeholder="https://youtu.be/..."
+            autocomplete="off"
+          />
+          <button class="button-link" id="setBtn">セット</button>
+        </div>
+        <div class="video-window">
+          <div id="player"></div>
+        </div>
+
+        <div class="mic-panel">
+          <div class="mic-head">
+            <span>早押しマイク検知</span>
+            <button class="button-link" id="micToggle">マイクをON</button>
+          </div>
+
+          <div class="meter-track">
+            <div class="meter-fill" id="meterFill"></div>
+            <div class="meter-threshold" id="meterThreshold"></div>
+          </div>
+          <style>
+            .meter-track {
+              position: relative;
+              height: 12px;
+              background: #ddd;
+              border-radius: 6px;
+              overflow: hidden;
+              margin: 12px 0;
+            }
+            .meter-fill {
+              width: 0%;
+              height: 100%;
+              background: #4caf50;
+            }
+            .meter-fill.buzz {
+              background: #e53935;
+            }
+            .meter-threshold {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              width: 2px;
+              background: #000;
+            }
+          </style>
+          <div class="mic-row">
+            <span>しきい値</span>
+            <input
+              type="range"
+              id="thresholdSlider"
+              min="2"
+              max="60"
+              value="18"
+            />
+            <span id="thresholdValue">18%</span>
+          </div>
+        </div>
+
+        <div class="keys">
+          <div class="key">
+            SPACE
+            <span><b>停止</b> - 音を止める</span>
+          </div>
+          <div class="key">
+            ENTER
+            <span><b>再生</b> - 音を出す</span>
+          </div>
+        </div>
+        <div></div>
+      </div>
+    </main>
+    <footer>
+      <h3>ただいま開発中...</h3>
+    </footer>
+    <script src="js/intro.js"></script>
+  </body>
+</html>
