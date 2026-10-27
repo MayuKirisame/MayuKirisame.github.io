@@ -51,6 +51,14 @@ function loadFromInput() {
 
 document.getElementById("setBtn").addEventListener("click", loadFromInput);
 
+function clearInput() {
+  const input = document.getElementById("urlInput");
+  input.value = "";
+  input.focus();
+}
+
+document.getElementById("clearBtn").addEventListener("click", clearInput);
+
 document.addEventListener("keydown", (e) => {
   if (document.activeElement === document.getElementById("urlInput")) return;
   if (!playerReady) return;
