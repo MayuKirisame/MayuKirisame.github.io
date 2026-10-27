@@ -45,6 +45,20 @@
             <div class="meter-threshold" id="meterThreshold"></div>
           </div>
           <style>
+            .video-window {
+              width: 100%;
+              max-width: 800px; /* PC用の大きさ。好みで変更 */
+              aspect-ratio: 16 / 9; /* 横:縦 = 16:9 を保つ */
+              margin: 16px auto; /* 中央寄せ */
+              background: #000;
+            }
+
+            .video-window iframe {
+              width: 100%;
+              height: 100%;
+              display: block;
+              border: 0;
+            }
             .meter-track {
               position: relative;
               height: 12px;

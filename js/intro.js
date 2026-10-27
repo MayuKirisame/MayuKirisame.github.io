@@ -15,7 +15,7 @@ function onYouTubeIframeAPIReady() {
       onReady: () => {
         playerReady = true;
         if (pendingVideoId) {
-          player.loadVideoById(pendingVideoId);
+          player.cueVideoById(pendingVideoId);
           pendingVideoId = null;
         }
       },
@@ -43,7 +43,7 @@ function loadFromInput() {
     return;
   }
   if (playerReady) {
-    player.loadVideoById(id);
+    player.cueVideoById(id);
   } else {
     pendingVideoId = id;
   }
