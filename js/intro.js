@@ -98,10 +98,18 @@ function updateThreshold() {
 thresholdSlider.addEventListener("input", updateThreshold);
 updateThreshold();
 
+document.getElementById("monitorSlider").addEventListener("input", (e) => {
+  if (monitorGain) monitorGain.gain.value = Number(e.target.value) / 100;
+});
+
 // マイクON
+let monitorGain = null; // 他の let 変数と並べて宣言しておく
+
 async function enableMic() {
   try {
-    micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    micStream = await navigator.mediaDevices.getUserMedia({
+      audio: { echoCancellation: true },
+    });
   } catch (err) {
     alert(
       "マイクを使用できませんでした。ブラウザの権限設定を確認してください。",
@@ -112,7 +120,15 @@ async function enableMic() {
   const source = audioCtx.createMediaStreamSource(micStream);
   analyser = audioCtx.createAnalyser();
   analyser.fftSize = 1024;
+
+  // 音量計測用
   source.connect(analyser);
+
+  // そのまま出力用（音量を調整できるように GainNode を挟む）
+  monitorGain = audioCtx.createGain();
+  monitorGain.gain.value = 1.0; // 1.0 = そのままの大きさ
+  source.connect(monitorGain);
+  monitorGain.connect(audioCtx.destination);
 
   micEnabled = true;
   micToggle.textContent = "マイクをOFF";
